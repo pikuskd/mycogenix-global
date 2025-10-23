@@ -20,7 +20,7 @@ const Team = () => {
       role: 'Founder',
       description:
         'Computer Science graduate from NIT Rourkela with extensive experience at tech giants like Amazon, Salesforce, and SAP Labs. Software developer by profession, bringing cutting-edge technology solutions to agricultural innovation.',
-      avatar: '/Soumya_Kanta_Das_Pic.jpg',
+      avatar: 'Soumya_Kanta_Das_Pic.jpg',
       color: 'primary',
       icon: <BusinessIcon sx={{ fontSize: 30, color: 'primary.main' }} />,
       achievements: [
@@ -34,7 +34,7 @@ const Team = () => {
       role: 'Founder',
       description:
         'Electronics and Instrumentation graduate from NIT Rourkela, currently working as a Software Developer at Analog Devices. Specializes in hardware-software integration for agricultural automation and precision farming solutions.',
-      avatar: '/Akshat_Parag_Pic.jpeg',
+      avatar: 'Akshat_Parag_Pic.jpeg',
       avatarPosition: 'center 5%',
       color: 'secondary',
       icon: <ScienceIcon sx={{ fontSize: 30, color: 'secondary.main' }} />,
@@ -49,7 +49,7 @@ const Team = () => {
       role: 'Co-Founder & Chief Operations Officer',
       description:
         'Operations specialist focused on training programs and community development initiatives. Dedicated to bringing innovative mushroom cultivation techniques to farming communities across India.',
-      avatar: '/Akshay_Prasoon_Pic.jpeg',
+      avatar: 'Akshay_Prasoon_Pic.jpeg',
       avatarPosition: 'center 10%',
       color: 'primary',
       icon: <SchoolIcon sx={{ fontSize: 30, color: 'primary.main' }} />,
@@ -178,7 +178,7 @@ const Team = () => {
                   }}
                 >
                   <Avatar
-                    src={member.avatar}
+                    src={process.env.PUBLIC_URL + '/' + member.avatar}
                     alt={member.name}
                     sx={{
                       width: 100,

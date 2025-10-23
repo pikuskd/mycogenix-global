@@ -60,7 +60,7 @@ const Footer = () => {
             >
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
                 <Avatar
-                  src="/MycoGenix_Global_Logo.jpeg"
+                  src={process.env.PUBLIC_URL + '/MycoGenix_Global_Logo.jpeg'}
                   sx={{
                     width: 60,
                     height: 60,
