@@ -35,7 +35,7 @@ const Navbar = () => {
           onClick={() => scrollToSection('#home')}
         >
           <Avatar
-            src="/MycoGenix_Global_Logo.jpeg"
+            src={process.env.PUBLIC_URL + '/MycoGenix_Global_Logo.jpeg'}
             alt="MycoGenix Logo"
             sx={{
               width: 50,
