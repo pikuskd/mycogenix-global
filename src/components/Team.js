@@ -31,7 +31,7 @@ const Team = () => {
     },
     {
       name: 'Akshat Parag',
-      role: 'Founder',
+      role: 'Founder & Director',
       description:
         'Electronics and Instrumentation graduate from NIT Rourkela, currently working as a Software Developer at Analog Devices. Specializes in hardware-software integration for agricultural automation and precision farming solutions.',
       avatar: 'Akshat_Parag_Pic.jpeg',
