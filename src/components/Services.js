@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -6,6 +6,11 @@ import {
   Card,
   CardContent,
   Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Divider,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import AgricultureIcon from '@mui/icons-material/Agriculture';
@@ -14,6 +19,9 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Services = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
   const services = [
     {
       icon: <AgricultureIcon sx={{ fontSize: 60, color: 'primary.main' }} />,
@@ -26,6 +34,9 @@ const Services = () => {
         'Sustainable farming methods',
         'Market-ready products',
       ],
+      modalContent: `
+Our state-of-the-art mushroom production facility is designed to deliver optimal yields with minimal manual intervention. With 6 fully equipped growing rooms, we are capable of producing approximately 400kg of premium mushrooms every day. The entire process is fully automated, ensuring consistent quality, hygiene, and efficiency. Our cutting-edge technology and rigorous quality control systems guarantee that every batch meets the highest industry standards, ready to reach your market or business needs seamlessly.
+      `,
       color: 'primary',
     },
     {
@@ -39,6 +50,9 @@ const Services = () => {
         'Market analysis',
         'Ongoing support',
       ],
+      modalContent: `
+Our consultancy services are designed to empower farmers and businesses in mushroom cultivation. We offer a subscription-based model tailored to your needs, allowing us to connect with you, understand your unique scenario, and craft a customized plan. Whether virtually or in-person at our nearby centers, our expert guidance helps you optimize your operations and achieve success. Each consultation is focused on practical strategies, actionable advice, and ongoing support to help you grow and thrive in the mushroom industry.
+      `,
       color: 'secondary',
     },
     {
@@ -52,9 +66,22 @@ const Services = () => {
         'Technical assistance',
         'Market connections',
       ],
+      modalContent: `
+We conduct bi-weekly training sessions for local farmers at small, medium, and large scales, teaching them the best practices for growing button mushrooms. These sessions are designed to be practical, engaging, and inclusive, ensuring that everyone can implement the techniques effectively. If you are interested, you can also join our virtual sessions, making learning accessible regardless of your location. Our goal is to empower communities with the knowledge and skills they need to succeed in sustainable mushroom cultivation.
+      `,
       color: 'primary',
     },
   ];
+
+  const handleOpenModal = (service) => {
+    setSelectedService(service);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedService(null);
+  };
 
   return (
     <Box id="services" sx={{ py: { xs: 6, md: 8 }, backgroundColor: 'white' }}>
@@ -234,6 +261,7 @@ const Services = () => {
                             : 'secondary.dark',
                       },
                     }}
+                    onClick={() => handleOpenModal(service)}
                   >
                     Learn More
                   </Button>
@@ -242,6 +270,24 @@ const Services = () => {
             </motion.div>
           ))}
         </Box>
+
+        {/* Modal for Learn More */}
+        <Dialog open={openModal} onClose={handleCloseModal} fullWidth maxWidth="sm">
+          <DialogTitle sx={{ fontWeight: 700, color: selectedService?.color === 'primary' ? '#2E7D32' : '#FF6F00' }}>
+            {selectedService?.title}
+          </DialogTitle>
+          <Divider />
+          <DialogContent sx={{ mt: 2 }}>
+            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+              {selectedService?.modalContent}
+            </Typography>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseModal} color="primary">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
 
         {/* Call to Action */}
         <motion.div
