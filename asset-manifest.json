@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mycogenix-global/static/css/main.cfc38011.css",
-    "main.js": "/mycogenix-global/static/js/main.45d63481.js",
+    "main.js": "/mycogenix-global/static/js/main.34e475ad.js",
     "static/js/453.d7446e4a.chunk.js": "/mycogenix-global/static/js/453.d7446e4a.chunk.js",
     "static/media/roboto-latin-700-normal.woff2": "/mycogenix-global/static/media/roboto-latin-700-normal.3d32572dd5951c418e5b.woff2",
     "static/media/roboto-latin-500-normal.woff2": "/mycogenix-global/static/media/roboto-latin-500-normal.599f66a60bdf974e578e.woff2",
@@ -77,11 +77,11 @@
     "static/media/roboto-greek-ext-700-normal.woff": "/mycogenix-global/static/media/roboto-greek-ext-700-normal.f54f1cebdcefe4af6446.woff",
     "index.html": "/mycogenix-global/index.html",
     "main.cfc38011.css.map": "/mycogenix-global/static/css/main.cfc38011.css.map",
-    "main.45d63481.js.map": "/mycogenix-global/static/js/main.45d63481.js.map",
+    "main.34e475ad.js.map": "/mycogenix-global/static/js/main.34e475ad.js.map",
     "453.d7446e4a.chunk.js.map": "/mycogenix-global/static/js/453.d7446e4a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cfc38011.css",
-    "static/js/main.45d63481.js"
+    "static/js/main.34e475ad.js"
   ]
 }
