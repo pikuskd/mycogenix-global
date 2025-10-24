@@ -21,8 +21,8 @@ const Hero = () => {
     },
     {
       icon: <SchoolIcon sx={{ fontSize: 38, color: 'secondary.main' }} />,
-      title: 'Training Programs',
-      description: 'Comprehensive cultivation training for aspiring farmers.',
+      title: 'Online Consultancy',
+      description: 'Providing online consultancy for mushroom cultivation and business development.',
     },
     {
       icon: <NatureIcon sx={{ fontSize: 38, color: 'primary.main' }} />,
