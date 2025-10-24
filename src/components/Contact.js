@@ -9,6 +9,10 @@ import {
   Button,
   Alert,
   Snackbar,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import EmailIcon from '@mui/icons-material/Email';
@@ -23,16 +27,69 @@ const Contact = () => {
     phone: '',
     message: '',
   });
-  const [open, setOpen] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [errors, setErrors] = useState({});
 
-  const handleChange = (e) =>
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: '' }); // clear error on typing
+  };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setOpen(true);
-    setFormData({ name: '', email: '', phone: '', message: '' });
+
+    if (!validateForm()) return;
+
+    try {
+      const response = await fetch('https://formspree.io/f/movkgrva', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setOpenDialog(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        console.error('Formspree error:', errorData);
+        if (errorData?.errors) {
+          const backendErrors = {};
+          errorData.errors.forEach((err) => {
+            backendErrors[err.field] = err.message;
+          });
+          setErrors(backendErrors);
+        } else {
+          setOpenSnackbar(true);
+        }
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setOpenSnackbar(true);
+    }
   };
 
   const contactInfo = [
@@ -94,9 +151,8 @@ const Contact = () => {
                 fontSize: { xs: '1rem', md: '1.2rem' },
               }}
             >
-              Whether you’re curious about our training programs, partnership
-              opportunities, or commercial mushroom production — we’d love to
-              hear from you.
+              Whether you’re curious about our products, collaborations, or
+              mushroom farming support — we’d love to hear from you.
             </Typography>
           </Box>
         </motion.div>
@@ -157,10 +213,7 @@ const Contact = () => {
                 >
                   {info.details}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ color: 'text.secondary' }}
-                >
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                   {info.description}
                 </Typography>
               </Card>
@@ -209,6 +262,8 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      error={!!errors.name}
+                      helperText={errors.name}
                     />
                   </Grid>
                   <Grid item xs={12} sm={6}>
@@ -221,6 +276,8 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      error={!!errors.email}
+                      helperText={errors.email}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -231,6 +288,8 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       variant="outlined"
+                      error={!!errors.phone}
+                      helperText={errors.phone}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -244,6 +303,8 @@ const Contact = () => {
                       multiline
                       rows={4}
                       variant="outlined"
+                      error={!!errors.message}
+                      helperText={errors.message}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -279,20 +340,39 @@ const Contact = () => {
           </Box>
         </motion.div>
 
+        {/* Snackbar for network or unknown error */}
         <Snackbar
-          open={open}
+          open={openSnackbar}
           autoHideDuration={5000}
-          onClose={() => setOpen(false)}
+          onClose={() => setOpenSnackbar(false)}
           anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         >
           <Alert
-            onClose={() => setOpen(false)}
-            severity="success"
+            onClose={() => setOpenSnackbar(false)}
+            severity="error"
             sx={{ width: '100%' }}
           >
-            Thank you for reaching out! We’ll get back to you soon.
+            Oops! Something went wrong. Please try again.
           </Alert>
         </Snackbar>
+
+        {/* Thank You Dialog */}
+        <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+          <DialogTitle sx={{ color: 'primary.main', fontWeight: 700 }}>
+            🎉 Thank You!
+          </DialogTitle>
+          <DialogContent>
+            <Typography sx={{ mt: 1 }}>
+              Your message has been sent successfully. We’ll get back to you
+              soon.
+            </Typography>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setOpenDialog(false)} variant="contained">
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </Container>
     </Box>
   );

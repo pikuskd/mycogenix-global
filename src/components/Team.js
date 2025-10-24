@@ -33,7 +33,7 @@ const Team = () => {
       name: 'Akshat Parag',
       role: 'Founder & Director',
       description:
-        'Electronics and Instrumentation graduate from NIT Rourkela, currently working as a Software Developer at Analog Devices. Specializes in hardware-software integration for agricultural automation and precision farming solutions.',
+        'Electronics and Instrumentation graduate from NIT Rourkela. Specializes in hardware-software integration for agricultural automation and precision farming solutions.',
       avatar: 'Akshat_Parag_Pic.jpeg',
       avatarPosition: 'center 5%',
       color: 'secondary',
@@ -46,7 +46,7 @@ const Team = () => {
     },
     {
       name: 'Akshay Prasoon',
-      role: 'Co-Founder & Chief Operations Officer',
+      role: 'Co-Founder & Director',
       description:
         'Operations specialist focused on training programs and community development initiatives. Dedicated to bringing innovative mushroom cultivation techniques to farming communities across India.',
       avatar: 'Akshay_Prasoon_Pic.jpeg',
