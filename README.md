@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+-> npm start -> to start the development server
+-> npm run build -> to publish to github pages
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
