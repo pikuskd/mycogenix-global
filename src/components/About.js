@@ -17,17 +17,17 @@ const About = () => {
   const stats = [
     {
       icon: <TrendingUpIcon sx={{ fontSize: 36, color: 'primary.main' }} />,
-      number: '500+',
-      label: 'Farmers Trained',
+      number: '21,000+ Sq. Ft.',
+      label: 'Cultivation Area',
     },
     {
       icon: <GroupIcon sx={{ fontSize: 36, color: 'secondary.main' }} />,
-      number: '50+',
-      label: 'Training Programs',
+      number: '20+',
+      label: 'Team Size',
     },
     {
       icon: <NatureIcon sx={{ fontSize: 36, color: 'primary.main' }} />,
-      number: '1000+',
+      number: '400 KG / Day',
       label: 'Mushrooms Produced',
     },
     {
@@ -39,19 +39,19 @@ const About = () => {
 
   const features = [
     {
-      title: 'Innovative Production',
+      title: 'Fully Automated Production',
       description:
-        'We use cutting-edge technology and sustainable practices to produce high-quality mushrooms for commercial markets.',
+        'We use fully automated production methods to produce high-quality mushrooms for commercial markets.',
     },
     {
-      title: 'Comprehensive Training',
+      title: 'Online Consultancy Services',
       description:
-        'Our expert-led training programs equip farmers with the knowledge and skills needed for successful mushroom cultivation.',
+        'We provide online consultancy services to help farmers with mushroom cultivation and business development.',
     },
     {
-      title: 'Community Support',
+      title: 'Farmer Support',
       description:
-        'We provide free training and ongoing support to help local farming communities thrive and grow.',
+        'We provide free training and ongoing support to help local farming communities thrive on mushroom cultivation and grow.',
     },
   ];
 

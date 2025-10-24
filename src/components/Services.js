@@ -19,7 +19,7 @@ const Services = () => {
       icon: <AgricultureIcon sx={{ fontSize: 60, color: 'primary.main' }} />,
       title: 'Mushroom Production',
       description:
-        'Advanced commercial mushroom cultivation using cutting-edge technology and sustainable practices.',
+        'Fully automated mushroom cultivation using cutting-edge technology and sustainable practices.',
       features: [
         'Commercial-scale production',
         'Quality control systems',
@@ -30,13 +30,13 @@ const Services = () => {
     },
     {
       icon: <SchoolIcon sx={{ fontSize: 60, color: 'secondary.main' }} />,
-      title: 'Cultivation Training',
+      title: 'Online Consultancy Services',
       description:
-        'Comprehensive training programs designed to equip farmers with professional mushroom cultivation skills.',
+        'We provide online consultancy services to help farmers with mushroom cultivation and business development.',
       features: [
-        'Hands-on workshops',
-        'Expert instructors',
-        'Certification programs',
+        'Online consultations',
+        'Business development support',
+        'Market analysis',
         'Ongoing support',
       ],
       color: 'secondary',

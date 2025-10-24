@@ -14,21 +14,21 @@ import AgricultureIcon from '@mui/icons-material/Agriculture';
 
 const Hero = () => {
   const services = [
-    {
-      icon: <AgricultureIcon sx={{ fontSize: 38, color: 'primary.main' }} />,
-      title: 'Mushroom Production',
-      description: 'Advanced mushroom cultivation techniques for commercial production.',
-    },
-    {
-      icon: <SchoolIcon sx={{ fontSize: 38, color: 'secondary.main' }} />,
-      title: 'Online Consultancy',
-      description: 'Providing online consultancy for mushroom cultivation and business development.',
-    },
-    {
-      icon: <NatureIcon sx={{ fontSize: 38, color: 'primary.main' }} />,
-      title: 'Farmer Support',
-      description: 'Free training and support for local farming communities.',
-    },
+    // {
+    //   icon: <AgricultureIcon sx={{ fontSize: 38, color: 'primary.main' }} />,
+    //   title: 'Mushroom Production',
+    //   description: 'Advanced mushroom cultivation techniques for commercial production.',
+    // },
+    // {
+    //   icon: <SchoolIcon sx={{ fontSize: 38, color: 'secondary.main' }} />,
+    //   title: 'Online Consultancy',
+    //   description: 'Providing online consultancy for mushroom cultivation and business development.',
+    // },
+    // {
+    //   icon: <NatureIcon sx={{ fontSize: 38, color: 'primary.main' }} />,
+    //   title: 'Farmer Support',
+    //   description: 'Free training and support for local farming communities.',
+    // },
   ];
 
   return (
@@ -100,8 +100,8 @@ const Hero = () => {
               }}
             >
               MycoGenix Global is revolutionizing mushroom cultivation through
-              innovative production methods, comprehensive training programs,
-              and community support initiatives.
+              fully automated production methods, online consultancy services,
+              and farmer support initiatives.
             </Typography>
 
             {/* === BUTTONS === */}
