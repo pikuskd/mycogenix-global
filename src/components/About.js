@@ -55,6 +55,13 @@ const About = () => {
     },
   ];
 
+  // Function to scroll to Services section
+  const scrollToServices = () => {
+    document
+      .querySelector('#services')
+      ?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <Box id="about" sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#F8F9FA' }}>
       <Container maxWidth="lg">
@@ -122,7 +129,9 @@ const About = () => {
                   flex: '1 1 230px',
                   maxWidth: '260px',
                   display: 'flex',
+                  cursor: 'pointer', // Make stats card clickable
                 }}
+                onClick={scrollToServices} // Scroll on click
               >
                 <Card
                   sx={{
@@ -178,7 +187,7 @@ const About = () => {
           </Box>
         </motion.div>
 
-        {/* Features Section */}
+        {/* Features Section (Clickable) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +214,9 @@ const About = () => {
                   flex: '1 1 300px',
                   maxWidth: '350px',
                   display: 'flex',
+                  cursor: 'pointer',
                 }}
+                // onClick={scrollToServices} // Scroll on click
               >
                 <Card
                   sx={{
