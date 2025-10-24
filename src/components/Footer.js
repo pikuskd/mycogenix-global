@@ -27,10 +27,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <FacebookIcon />, href: '#', label: 'Facebook' },
-    { icon: <TwitterIcon />, href: '#', label: 'Twitter' },
-    { icon: <LinkedInIcon />, href: '#', label: 'LinkedIn' },
-    { icon: <InstagramIcon />, href: '#', label: 'Instagram' },
+    // { icon: <FacebookIcon />, href: '#', label: 'Facebook' },
+    // { icon: <TwitterIcon />, href: '#', label: 'Twitter' },
+    // { icon: <LinkedInIcon />, href: '#', label: 'LinkedIn' },
+    // { icon: <InstagramIcon />, href: '#', label: 'Instagram' },
   ];
 
   const scrollToSection = (href) => {
